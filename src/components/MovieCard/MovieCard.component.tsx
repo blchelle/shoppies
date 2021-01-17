@@ -49,7 +49,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isNominated, limitReached 
 						>
 							<Grid item>
 								<Typography variant='subtitle1'>
-									<Box fontWeight='bold'>{movie.Title}</Box>
+									<Box fontWeight='bold' className={classes.movieTitle}>
+										{movie.Title}
+									</Box>
 								</Typography>
 							</Grid>
 							<Grid item container justify='space-between' alignItems='center'>

@@ -22,6 +22,11 @@ export default makeStyles((theme) => {
 		cardContent: {
 			paddingBottom: `4px !important`,
 		},
+		movieTitle: {
+			lineHeight: '1.3rem',
+			maxHeight: 'calc(1.3rem * 3)',
+			overflow: 'hidden',
+		},
 		buttonsContainer: {
 			width: 'auto',
 		},
