@@ -1,7 +1,10 @@
 import React from 'react'
-import { createMuiTheme, Paper, ThemeProvider } from '@material-ui/core'
+import { useSelector } from 'react-redux'
+import { createMuiTheme, Grid, Paper, ThemeProvider } from '@material-ui/core'
 
-import SearchBar from './components/SearchBar/SearchBar.component'
+import { RootState } from './redux/root.reducer'
+import SearchContainer from './components/SearchContainer/SearchContainer.component'
+import NominationsPanel from './components/NominationsPanel/NominationsPanel.component'
 
 import useStyles from './App.mui'
 
@@ -9,14 +12,14 @@ const App = () => {
 	// Material UI
 	const classes = useStyles()
 
+	// Redux Hooks
+	const colorTheme = useSelector((state: RootState) => state.theme)
+
 	const theme = createMuiTheme({
 		palette: {
+			type: colorTheme,
 			primary: {
-				main: '#64943E',
-				contrastText: '#ffffff',
-			},
-			secondary: {
-				main: '#95BF47',
+				main: '#b7a261',
 				contrastText: '#ffffff',
 			},
 		},
@@ -24,17 +27,25 @@ const App = () => {
 			values: {
 				xs: 0,
 				sm: 480,
-				md: 700,
+				md: 800,
 				lg: 1000,
-				xl: 1200,
+				xl: 1600,
 			},
 		},
 	})
 
 	return (
 		<ThemeProvider theme={theme}>
-			<SearchBar />
-			<Paper className={classes.app}></Paper>
+			<Paper className={classes.app}>
+				<Grid container className={classes.fullHeight}>
+					<Grid item xs={12} md={9} className={classes.fullHeight}>
+						<SearchContainer />
+					</Grid>
+					<Grid item xs={3}>
+						<NominationsPanel />
+					</Grid>
+				</Grid>
+			</Paper>
 		</ThemeProvider>
 	)
 }
