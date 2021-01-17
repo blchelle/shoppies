@@ -20,7 +20,13 @@ export default makeStyles((theme) => {
 			height: cardHeight,
 		},
 		cardContent: {
-			paddingBottom: `${theme.spacing(2)}px !important`,
+			paddingBottom: `4px !important`,
+		},
+		buttonsContainer: {
+			width: 'auto',
+		},
+		deleteButton: {
+			marginRight: -8,
 		},
 	}
 })

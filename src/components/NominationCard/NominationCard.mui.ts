@@ -10,7 +10,7 @@ export default makeStyles(() => {
 			left: -30,
 			bottom: 0,
 			height: '50%',
-			zIndex: 10000,
+			zIndex: 1000,
 		},
 		movieCard: {
 			marginLeft: 55,

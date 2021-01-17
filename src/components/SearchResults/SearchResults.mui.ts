@@ -5,8 +5,8 @@ export default makeStyles((theme) => {
 		container: {
 			backgroundColor: theme.palette.background.default,
 
-			width: 'auto',
-			height: 'calc(100vh - 64px)',
+			width: '100%',
+			height: 'calc(100vh - 56px)',
 
 			padding: theme.spacing(2),
 			margin: 0,
@@ -16,6 +16,10 @@ export default makeStyles((theme) => {
 		shoppiesSvg: {
 			width: '40%',
 			height: 'auto',
+		},
+		shoppiesSvgMobile: {
+			width: '70%',
+			height: 200,
 		},
 	}
 })

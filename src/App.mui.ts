@@ -8,9 +8,19 @@ export default makeStyles((theme) => {
 			borderRadius: 0,
 			backgroundColor: theme.palette.background.default,
 			overflow: 'hidden',
+			position: 'relative',
 		},
-		fullHeight: {
-			height: '100vh',
+		fab: {
+			position: 'absolute',
+			bottom: theme.spacing(4),
+			right: theme.spacing(4),
+			zIndex: 1000,
+		},
+		finishSvg: {
+			width: '90%',
+			marginBottom: theme.spacing(2),
+			marginTop: theme.spacing(2),
+			height: 'auto',
 		},
 	}
 })

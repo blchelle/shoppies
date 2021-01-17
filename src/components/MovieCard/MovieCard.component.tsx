@@ -1,6 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from '@material-ui/core'
+import { Box, Card, CardContent, CardMedia, Grid, IconButton, Typography } from '@material-ui/core'
+import {
+	StarBorder as StarBorderIcon,
+	Star as StarFilledIcon,
+	RemoveCircleOutline,
+} from '@material-ui/icons'
 
 import DefaultPoster from '../../assets/no-poster.png'
 import Movie from '../../types/Movie.type'
@@ -47,34 +52,44 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isNominated, limitReached 
 									<Box fontWeight='bold'>{movie.Title}</Box>
 								</Typography>
 							</Grid>
-							<Grid item container justify='space-between'>
+							<Grid item container justify='space-between' alignItems='center'>
 								<Grid item>
 									<Typography variant='h6' color='textSecondary'>
 										{movie.Year}
 									</Typography>
 								</Grid>
 								{isNominated ? (
-									<Grid item>
-										<Button
-											color='default'
-											variant='outlined'
-											size='small'
-											onClick={() => dispatch(deleteNomination(movie))}
-										>
-											Remove
-										</Button>
+									<Grid
+										item
+										container
+										className={classes.buttonsContainer}
+										alignItems='center'
+									>
+										<Grid item>
+											<IconButton size='small'>
+												<RemoveCircleOutline
+													className={classes.deleteButton}
+													onClick={() =>
+														dispatch(deleteNomination(movie))
+													}
+												/>
+											</IconButton>
+										</Grid>
+										<Grid item>
+											<IconButton color='primary' disabled={true}>
+												<StarFilledIcon color='primary' />
+											</IconButton>
+										</Grid>
 									</Grid>
 								) : (
 									<Grid item>
-										<Button
+										<IconButton
 											color='primary'
-											variant='contained'
-											size='small'
 											disabled={limitReached}
 											onClick={() => dispatch(addNomination(movie))}
 										>
-											Nominate
-										</Button>
+											<StarBorderIcon />
+										</IconButton>
 									</Grid>
 								)}
 							</Grid>
