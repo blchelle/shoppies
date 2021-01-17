@@ -68,7 +68,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isNominated, limitReached 
 										<Grid item>
 											<IconButton size='small'>
 												<RemoveCircleOutline
-													className={classes.deleteButton}
 													onClick={() =>
 														dispatch(deleteNomination(movie))
 													}

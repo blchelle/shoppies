@@ -25,8 +25,5 @@ export default makeStyles((theme) => {
 		buttonsContainer: {
 			width: 'auto',
 		},
-		deleteButton: {
-			marginRight: -8,
-		},
 	}
 })

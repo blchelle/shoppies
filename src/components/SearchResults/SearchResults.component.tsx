@@ -37,7 +37,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 
 	if (hasSearched && totalResults > 0) {
 		return (
-			<Grid container spacing={4} className={classes.container}>
+			<Grid container spacing={4} className={classes.container} alignContent='flex-start'>
 				{movies.map((movie) => (
 					<Grid item xs={12} lg={6} xl={4} key={movie.imdbID}>
 						<MovieCard
