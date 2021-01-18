@@ -8,9 +8,6 @@ import {
 	ThemeProvider,
 	useMediaQuery,
 	Drawer,
-	Dialog,
-	Typography,
-	DialogContent,
 } from '@material-ui/core'
 import { ChevronLeft as LeftIcon } from '@material-ui/icons'
 import useWindowSize from 'react-use/lib/useWindowSize'
@@ -18,8 +15,8 @@ import Confetti from 'react-confetti'
 
 import { RootState } from './redux/root.reducer'
 import SearchContainer from './components/SearchContainer/SearchContainer.component'
+import FinishDialog from './components/FinishDialog/FinishDialog.component'
 import NominationsPanel from './components/NominationsPanel/NominationsPanel.component'
-import { ReactComponent as FinishUD } from './assets/finish.undraw.svg'
 
 import useStyles from './App.mui'
 import useCommonStyles from './components/common.mui'
@@ -70,31 +67,11 @@ const App = () => {
 					<Confetti
 						width={width}
 						height={height}
-						style={{ zIndex: 1200 }}
+						style={{ zIndex: 1400 }}
 						gravity={0.2}
 						colors={[theme.palette.primary.main, theme.palette.primary.light]}
 					/>
-					<Dialog
-						open={true}
-						onClose={() => setDialogIsOpen(false)}
-						style={{ zIndex: 1101 }}
-					>
-						<DialogContent>
-							<Grid container>
-								<Typography variant='h5'>
-									Thank you for submitting your nominations!
-								</Typography>
-								<Grid item xs={12}>
-									<FinishUD className={classes.finishSvg} />
-								</Grid>
-								<Typography variant='subtitle1'>
-									This is going to help make this year's Shoppies a huge success.
-									Feel free to modify your nominations if you feel something needs
-									to be changed.
-								</Typography>
-							</Grid>
-						</DialogContent>
-					</Dialog>
+					<FinishDialog open={dialogIsOpen} onClose={() => setDialogIsOpen(false)} />
 				</>
 			) : null}
 			<Paper className={classes.app}>

@@ -16,8 +16,11 @@ export default makeStyles((theme) => {
 			right: theme.spacing(4),
 			zIndex: 1000,
 		},
+		dialog: {
+			zIndex: 1100,
+		},
 		finishSvg: {
-			width: '90%',
+			width: '100%',
 			marginBottom: theme.spacing(2),
 			marginTop: theme.spacing(2),
 			height: 'auto',
